@@ -83,7 +83,7 @@ Modular ZK proof layer
 
 - **code:** 状态码
 - **msg:** 信息
-- **results:** 新创建的Prove任务的唯一标识符。
+- **results:** Receipt
 
 ### 成功响应示例
 
