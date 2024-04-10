@@ -11,7 +11,7 @@ Modular ZK proof layer
 3. Prove端读取`elf`和`input`，并利用GPU加速生成证明（即`receipt.json`文件）。`receipt.json`文件会返回给任务调度系统。任务调度系统将`receipt.json`文件和相应的执行结果与之前生成的`task_id`相关联，将`task_id`、`receipt`、`elf`和`input`进行持久化存储，以供后续查询。
 4. Prove端会通过API返回`receipt`给用户。用户可根据`receipt`中的信息，来验证证明的有效性或执行其他相关操作。
 
-# 创建新的Prove任务 API
+# 创建新的Prove任务
 
 ## 概述
 
@@ -57,7 +57,7 @@ Modular ZK proof layer
 - **401 Unauthorized:** 用户未认证，请求被拒绝。
 - **500 Internal Server Error:** 服务器内部错误，无法完成请求。
 
-# 查询Prove任务执行状态 API
+# 查询Prove任务执行状态
 
 ## 概述
 
@@ -83,7 +83,7 @@ Modular ZK proof layer
 
 - **code:** 状态码
 - **msg:** 信息
-- **results:** 新创建的Prove任务的唯一标识符。
+- **results:** Receipt
 
 ### 成功响应示例
 
