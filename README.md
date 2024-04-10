@@ -44,7 +44,7 @@ The response is in JSON format and includes the following fields:
 ```json
 {
  "code": 0,
- "msg": "Successfully created.",
+ "msg": "Successfully",
  "results": {}
 }
 ```
@@ -89,7 +89,7 @@ The response is in JSON format and includes the following fields:
 ```json
 {
  "code": 0,
- "msg": "Successfully.",
+ "msg": "Successfully",
  "results": {}
 }
 ```
