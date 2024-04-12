@@ -72,9 +72,9 @@ fn main() {
 }
 ```
 
-相应的，用户应在与build.rs同目录的Cargo.toml中添加risc0-zkvm和serde的依赖。其他的依赖取决于用户具体希望构建的input，用户需自行补充。
+3. 相应的，用户应在与build.rs同目录的Cargo.toml中添加risc0-zkvm和serde的依赖。其他的依赖取决于用户具体希望构建的input，用户需自行补充。
 
-接下来，用户在/methods目录执行cargo build，该命令能够在项目根目录中/target路径下生成input_and_elf.json文件，其中包含电路的input以及elf编码。
+4. 接下来，用户在/methods目录执行cargo build，该命令能够在项目根目录中/target路径下生成input_and_elf.json文件，其中包含电路的input以及elf编码。
 
 input_and_elf.json示例：
 
