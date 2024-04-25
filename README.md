@@ -131,9 +131,9 @@ Related Technologies:
 
 • Unique Identity Key Pair: Refers to a device having a unique pair of public and private keys used for various security functions, such as encrypted communication, digital signatures, etc.
 
-## RISC ZERO Remote Proof Generation
+# RISC ZERO Remote Proof Generation
 
-### Overview of the Prove Process
+## Overview of the Prove Process
 
 1. Users initiate a new Prove task by sending a POST request to the ProveAPI containing the contents of the `input_and_elf.json` file. As a response, the API returns a `task_id` to the user, which serves as a reference for tracking the task's progress and execution status.
 
@@ -143,7 +143,41 @@ Related Technologies:
 
 4. The Prove side returns the `receipt` to the user via the API. Users can verify the validity of the proof or perform other related operations based on the information in the `receipt`.
 
-### Generating Configuration File input_and_elf.json
+## Benchmark Introduction
+
+### Total Cycles:
+Clock cycles are the smallest computational units in a zkVM circuit, similar to clock cycles on a physical CPU. The complexity of client programs is measured in clock cycles, as they directly affect the memory, proof size, and timing performance of the zkVM.
+
+For a detailed explanation, refer to:
+
+https://dev.risczero.com/api/zkvm/optimization#what-is-a-cycle
+
+https://dev.risczero.com/api/zkvm/quickstart#executor-statistics
+
+https://dev.risczero.com/terminology#clock-cycles
+
+### Testing Method:
+Run in the respective project root directory:
+```
+RUST_LOG="[executor]=info" cargo run --release
+```
+Or set the environment variable in the current command line and run the project code normally:
+```
+export RUST_LOG="[executor]=info"
+```
+Seconds:
+
+Tests the time required for Bonsai and Vortex to prove in circuits with different Total Cycles quantities.
+
+### Vortex:
+
+After calling the API, check the “total_seconds” field in the response.
+
+For example:
+```
+"total_seconds": 2.567154}
+```
+## Generating Configuration File input_and_elf.json
 
 Users need to generate a configuration file containing inputs and elf named input_and_elf.json locally. The specific steps are as follows:
 
