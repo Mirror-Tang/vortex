@@ -88,8 +88,6 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### 基于CVM的多GPU机密计算
 
-Confidential Virtual Machine.
-
 ![image](https://github.com/monkAlmond/vortex/blob/master/image/5.png)
 
 • GPU之间使⽤NVLink进⾏设备间通信。 
@@ -115,8 +113,6 @@ Confidential Virtual Machine.
 
 ---
 ### GPU TEE依赖的安全特性
-
-Trusted execution environment.
 
 • 片上的RoT：RoT负责在设备启动和运行时确保软件和硬件的完整性
 
