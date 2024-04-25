@@ -1,5 +1,5 @@
 # Vortex
-Vortex is a decentralized ZK proof generation layer that helps users generate ZK-SNARK proofs and submit them for verification by smart contracts.
+<div align="center">Vortex is a decentralized ZK proof generation layer that helps users generate proofs and submit them for verification.</div>
 
 <p align="center">
   <img alt="Vortex" width="300" height="300" src="/image/vortexlogo.png"/>
