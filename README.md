@@ -1,7 +1,9 @@
 # Vortex
 Vortex is a decentralized ZK proof generation network that helps users generate ZK-SNARK proofs and submit them for verification by smart contracts.
 
-![image](https://github.com/Mirror-Tang/vortex/blob/master/vortexlogo.png)
+<p align="center">
+  <img alt="Vortex" width="300" height="300" src="/image/vortexlogo.png"/>
+</p>
 
 ## Vortex Architecture
 
@@ -31,6 +33,7 @@ The Vortex Network consists of Vortex nodes operated by users, whose job is to g
 • The GPU attestation report records under which CC work mode the GPU is operating. This ensures that an untrusted hypervisor can only set the CC work mode as intended.
 • A GPU reset will clear the GPU memory and state, including session keys and secrets.
 
+---
 ### How to Protect Memory after Enabling CC Work Mode？
 
 ![image](https://github.com/Mirror-Tang/vortex/blob/master/image/2.png)
@@ -40,6 +43,7 @@ The Vortex Network consists of Vortex nodes operated by users, whose job is to g
 • In the CVM, the NV driver commands the GPU to allocate bounce buffers in the unprotected memory area and maps them to the shared memory area of the CPU.
 • Subsequently, the NV driver uses the SPDM session key to write encrypted data into the bounce buffer.
 
+---
 ### How does Confidential Computing Protect CUDA Programs (without needing to change the CUDA programs)?
 
 ![image](https://github.com/Mirror-Tang/vortex/blob/master/image/3.png)
@@ -49,6 +53,7 @@ The Vortex Network consists of Vortex nodes operated by users, whose job is to g
 • When sending data to the GPU device:The NVIDIA driver within the CVM encrypts the data to be sent and then writes it into the bounce buffer;The GPU DMA engine reads the encrypted data from the bounce buffer and decrypts it into the GPU's protected memory.
 • When reading data from the GPU device:The GPU DMA engine writes the encrypted data into the bounce buffer via the PCIe bus;The NVIDIA driver within the CVM reads the encrypted data from the bounce buffer and decrypts it into the CVM's private memory.
 
+---
 ### Internal Protection Mechanisms of a Confidential GPU
 
 ![image](https://github.com/Mirror-Tang/vortex/blob/master/image/4.png)
@@ -60,6 +65,7 @@ If the GPU is started in CC (Confidential Computing) work mode, it blocks all in
 • Block all other engines (such as compute SMs) from accessing memory outside of the CPR.
 After CC work mode is enabled, all GPU performance counters are disabled to protect against side-channel attacks.
 
+---
 ### Multi GPU Secret Computing Based on CVM
 
 ![image](https://github.com/Mirror-Tang/vortex/blob/master/image/5.png)
@@ -67,6 +73,7 @@ After CC work mode is enabled, all GPU performance counters are disabled to prot
 • Enable NVLink communication between GPUs and devices. 1. After enabling CC working mode, do not use PCIe P2P; 2. Both CUDA APIs and hardware firewalls prohibit direct pointer dereference of peer GPU memory.
 • The DMA engine on the source and destination GPUs uses a shared session key to protect transmission on NVLink.CudaMemcpyDeviceToDevice() transmits encrypted data through a bounce buffer.1. The DMA engine on the source GPU side is responsible for encrypting data, and then transmitting the encrypted data to the unprotected memory on the source GPU side through an untrusted NVLink; 2. The DMA engine on the destination GPU side is responsible for decrypting encrypted data from the bounce buffer into its own GPU protected memory.
 
+---
 ### Confidential MIG
 
 ![image](https://github.com/Mirror-Tang/vortex/blob/master/image/6.png)
@@ -77,6 +84,7 @@ Related Technologies:
 • Multi-Instance GPU (MIG): Divides GPU resources into multiple GPU instances, which can be considered as multiple sub-GPUs.
 • SR-IOV: Exposes GPU Virtual Functions (VF) as PCIe devices and passes them through to VMs.
 
+---
 ### Security Features Dependent on GPU TEE
 
 • On-chip RoT (Root of Trust): RoT is responsible for ensuring the integrity of software and hardware during device startup and operation.
@@ -228,9 +236,9 @@ The response is in JSON format and includes the following fields:
 - **401 Unauthorized:** The user is not authenticated, and the request is denied.
 - **500 Internal Server Error:** There was an internal server error, and the request could not be completed.
 
-# Query the Execution Status of a Prove Task
+### Query the Execution Status of a Prove Task
 
-## Overview
+### Overview
 
 This interface allows users to query the current execution status of a specified Prove task. By sending a GET request to `api/v1/prove/query` with the task's `task_id`, users can obtain the task's status information.
 
