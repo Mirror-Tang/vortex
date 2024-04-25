@@ -2,7 +2,7 @@
 
 <div align="center">Vortex是一个去中心化的证明生成层，它可以帮助用户生成ZK-SNARK证明并提交给智能合约验证。</div>
 <p align="center">
-  <img alt="Vortex" width="300" height="300" src="vortexlogo.png"/>
+  <img alt="Vortex" width="300" height="300" src="/image/vortexlogo.png"/>
 </p>
 
 
@@ -25,7 +25,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 
 ### 机密GPU的机密计算⼯作模式
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/1.png)
+![image](/image/1.png)
 
 • CC（Confidential Computing）⼯作模式必须在GPU启动前提前配置好。在云场景中由VMM来设置；将CC⼯作模式位配置到GPU EEPROM中，然后执⾏ 
   GPU reset才能⽣效。
@@ -37,7 +37,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### CC工作模式开启后如何保护内存？
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/2.png)
+![image](/image/2.png)
 
 • 大多数GPU内存被配置到Compute Protected Region（CPR），该区域的内存由GPU内部的硬件firewalls提供保护；
 
@@ -52,7 +52,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### 机密计算如何保护CUDA程序（cuda程序无需改变）?
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/3.png)
+![image](/image/3.png)
 
 • CPU-GPU间的全部通信全都是加密的，包括数据传输、命令和CUDA kernels。
 
@@ -69,7 +69,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### 机密GPU的内部保护机制
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/4.png)
+![image](/image/4.png)
 
 如果GPU在启动时开启了CC工作模式，会阻断所有对GPU CPR内存的入站和出站访问。
 
@@ -88,7 +88,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### 基于CVM的多GPU机密计算
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/5.png)
+![image](/image/5.png)
 
 • GPU之间使⽤NVLink进⾏设备间通信。 
 	1.开启CC⼯作模式后不⽀持PCIe的P2P；
@@ -101,7 +101,7 @@ Vortex Network由用户运行的Vortex节点组成，它们的工作是生成ZK-
 ---
 ### 机密MIG
 
-![image](https://github.com/monkAlmond/vortex/blob/master/image/6.png)
+![image](/image/6.png)
 
 相关技术：
 
@@ -335,3 +335,20 @@ input_and_elf.json示例：
 
 
 ## Gnark 远程证明生成
+
+
+## Vortex 私有云
+
+Vortex私有云是帮助管理本地私有服务器集群（主要为GPU服务器和计算用途的CPU服务器），并以容器化的方式来为多用户提供计算服务的一套解决方案。与常规私有部署集群管理软件的主要区别有以下几点：
+
+1.低门槛与低运维。本地服务器仅需要部署简单几个服务组件即可，极低的运维工作量。其他成员用户管理、注册登录、控制面相关的服务、算力调度均由云端统一提供。即您的本地无需提供用于部署管理服务、数据库DB、消息队列的其他机器即可拥有完整的一套集群管理软件设施
+
+2.优秀的体验。与私有化部署不同，部署不意味着功能从此一成不变，而会不断升级云端控制面功能，满足持续的、多样化的体验与功能需求（欢迎您提出需求）。升级运维过程将自动化完成，无需用户干预
+
+3.高扩展性。仅需配备GPU服务器即可完成闭环的集群管理功能，同时又可根据您本地可提供的其他设施情况，如：共享文件存储、镜像仓库等，对您的集群功能进行扩展
+
+4.支持移动端。支持移动端任何时间、任何地点管理实例（开关机实例等），主机异常、实例异常等推送消息通知
+
+5.高数据安全性。与完全私有化部署方案几乎相同的数据安全保障，由于云端仅管理用户、算力库存、算力调度等控制面的数据，而服务器的访问可控制在仅限内网环境，因此可以同时兼顾低运维、好体验、高安全的优点
+
+6.Vortex 私有云基于AutoDL，可以无缝使用 CodeWithGPU 社区镜像
