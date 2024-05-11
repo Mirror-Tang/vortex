@@ -1,5 +1,6 @@
 # Vortex
-<div align="center">Vortex is a decentralized ZK proof generation layer that helps users generate proofs and submit them for verification.</div>
+<div align="center">Vortex is a decentralized ZK proof generation network that helps users generate proofs and submit them for verification.</div>
+<div align="center">Vortex is not a blockchain</div>
 
 <p align="center">
   <img alt="Vortex" width="300" height="300" src="/image/vortexlogo.png"/>
